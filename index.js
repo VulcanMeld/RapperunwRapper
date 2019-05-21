@@ -10,6 +10,8 @@ const searchGenius = () => {
     fetch(search_url)
     .then(response => response.json())
     .then(responseJson => parseSongUrl(responseJson))
+    .catch(error => alert("There was an error")
+    )
 }
 
 const parseSongUrl = response => {
@@ -18,6 +20,13 @@ const parseSongUrl = response => {
     let lyricsUrl = firstSong.result.url
     console.log(lyricsUrl)
 
+    extractLyrics(lyricsUrl)
+
+}
+
+const extractLyrics = extractedUrl => {
+    fetch(extractedUrl + `?q=access_token=rf8Kw3nqCf5zuhRsiXMdyq1Kyx3x0xJvPL7rh96VACHXXZCQzwRYiLbghBsTYLT5`)
+    .then(response => console.log(response.text())) 
 }
 
 
