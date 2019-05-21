@@ -25,7 +25,7 @@ const parseSongUrl = response => {
 }
 
 const extractLyrics = extractedUrl => {
-    fetch(extractedUrl + `?q=access_token=rf8Kw3nqCf5zuhRsiXMdyq1Kyx3x0xJvPL7rh96VACHXXZCQzwRYiLbghBsTYLT5`)
+    fetch(extractedUrl)
     .then(response => console.log(response.text())) 
 }
 
