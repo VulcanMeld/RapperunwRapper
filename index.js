@@ -1,12 +1,13 @@
 'use strict'
 
-const geniusToken = `Bearer bhKRd8FS9mr2uQMM76SO_qXBVRvYBLKNoy47fS226YMH3YwcTjEBYC8nwde54bHO`
 
 
 
 const searchGenius = () => {
-    let geniusSearchUrl = `https://api.genius.com/search?q=`
-    fetch(geniusSearchUrl)
+    let base_url = 'https://api.genius.com'
+   
+    let search_url = base_url + '/search?q=Paranoid&access_token=rf8Kw3nqCf5zuhRsiXMdyq1Kyx3x0xJvPL7rh96VACHXXZCQzwRYiLbghBsTYLT5'
+    fetch(search_url)
     .then(response => response.json())
     .then(responseJson => console.log(responseJson))
 }
