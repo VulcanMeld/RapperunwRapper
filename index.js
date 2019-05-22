@@ -38,6 +38,12 @@ const parseSongUrl = response => {
 
 }
 
+const searchUrbanDictionary = word => {
+    fetch(`https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=wat`, { headers: {"X-RapidAPI-Host": "mashape-community-urban-dictionary.p.rapidapi.com",
+    "X-RapidAPI-Key": "30258b3263msh40b2703a305e37ap1fca4ajsn5d8a7f888c90"}})
+    .then(response => console.log(response.json()))
+}
+
 
 
 
@@ -46,6 +52,7 @@ const watchForm = () => $("form").on("submit", function(event) {
     searchQuery = $(".js-search-query").val()
     console.log(searchQuery)
     searchGenius()
+    searchUrbanDictionary()
 
 })
 
