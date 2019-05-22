@@ -1,6 +1,20 @@
 'use strict'
 
 let searchQuery = "song"
+const setLyrics = data => {
+    let html = data.contents
+    let lyrics = $(html).find(".lyrics").html()
+    $(".lyrics").html(lyrics)
+    
+}
+
+const getHTML = url => {
+    url = 'http://www.whateverorigin.org/get?url=' + encodeURIComponent(url) + '&callback=?'
+    $.getJSON(url,setLyrics)
+
+}
+
+
 
 
 const searchGenius = () => {
@@ -20,13 +34,8 @@ const parseSongUrl = response => {
     let lyricsUrl = firstSong.result.url
     console.log(lyricsUrl)
 
-    extractLyrics(lyricsUrl)
+    getHTML(lyricsUrl)
 
-}
-
-const extractLyrics = extractedUrl => {
-    fetch(extractedUrl)
-    .then(response => console.log(response.text())) 
 }
 
 
